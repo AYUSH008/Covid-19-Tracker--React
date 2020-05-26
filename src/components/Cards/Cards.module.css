@@ -1,5 +1,6 @@
 .container {
     margin: 50px 0 ;
+    
 
 }
 
@@ -7,16 +8,20 @@
     margin: 0 2% !important;
     
 }
+.text1{
+    color:#88B2FF;
+}
 
 .Infected {
-    border-bottom: 10px solid rgba(0,0,255,0.5);
+    border-bottom: 10px solid rgb(136,178,255);
 }
 .Recovered {
-    border-bottom: 10px solid rgba(0,255,255,0.5);
+    border-bottom: 10px solid rgb(131, 245, 44);
 }
 .Deaths  {
-    border-bottom: 10px solid rgba(255,0,0,0.5);
+    border-bottom: 10px solid rgb(254, 7, 58);
 }
+
 
 
 @media(max-width: 770px){
