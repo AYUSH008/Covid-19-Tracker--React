@@ -2,12 +2,26 @@ import React, {useState, useEffect} from 'react';
 import {fetchDailyData } from '../../api';
 import {Line , Bar } from 'react-chartjs-2';
 import styles from './Chart.module.css';
+import Grid from '@material-ui/core/Grid';
+import { makeStyles, Typography } from '@material-ui/core'
 
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 2,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.primary,
+  },
+}));
 
 const Chart = ({ data: {confirmed, deaths, recovered} , country}) =>
 {
     const [dailyData, setDailyData] = useState({});
 
+    const classes = useStyles();
     useEffect(() =>{
     const fetchAPI = async () => {
       setDailyData(await fetchDailyData());
@@ -33,7 +47,7 @@ const Chart = ({ data: {confirmed, deaths, recovered} , country}) =>
             data: dailyData.map(({ deaths }) => deaths),
             label:'Deaths',
             borderColor: '#3333ff',
-            responsive: true,
+            responsive:true,
             backgroundColor: 'rgba(255,0,0,0.5',
             fill: true,
           }],
@@ -70,8 +84,20 @@ const Chart = ({ data: {confirmed, deaths, recovered} , country}) =>
     )
 
     return (
+      <div className={classes.root}>
+        <Grid container spacing={2}>
+          <Grid item xs={8} sm={8}>
        <div className={styles.container}>
        {country ? barChart : lineChart}
+       </div>
+       </Grid>
+       <Typography variant="h5" color="primary">Somthing have to add up</Typography>
+       <Grid item xs={8} sm={8}>
+       <div className={styles.container}>
+       {lineChart}
+       </div>
+       </Grid>
+       </Grid>
        </div>
     )
 }

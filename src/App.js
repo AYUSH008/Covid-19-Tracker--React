@@ -1,13 +1,10 @@
 import React from 'react';
-import {render } from 'react-dom'; 
-
 import { Cards, Chart, CountryPicker } from './components';
 import styles from './App.module.css';
 import { fetchData } from './api/index';
-import Typed from './components/Typed/Typed';
 import Demo from './demo';
-
-import coronaImage from './images/image.jpg'
+import CenteredGrid from './components/DashBoard/DashBoard';
+import FetchInda from './api/API';
 
 class App extends React.Component {
   state = {
@@ -35,14 +32,18 @@ class App extends React.Component {
     return (
       
       <div className={styles}>
+        
         <Demo/>
+        <CenteredGrid/>
+        <FetchInda/>
+        <br/>
+        <br/>
         <div className={styles.container}>
-          <Typed/>
-        <img className={styles.image} src={coronaImage} alt="covid-19" />
+       
         <Cards data={data} />
         <br />
         <CountryPicker handleCountryChange={this.handleCountryChange} />
-        <Chart data={data} country={country} />
+        <Chart className="chartConatiner" data={data} country={country} />
         </div>
       </div>
     )

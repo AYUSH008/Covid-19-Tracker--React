@@ -3,13 +3,23 @@ import { NativeSelect, FormControl } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import Select from '@material-ui/core/Select';
+import Grid from '@material-ui/core/Grid';
 
 import styles from './CountryPicker.module.css';
 
 import { fetchCountries } from '../../api';
 
+const withStyle = makeStyles((theme) => ({
+    root: {
+      flexGrow: 2,
+    },
+    paper: {
+      padding: theme.spacing(2),
+      textAlign: 'center',
+      color: theme.palette.text.primary,
+    },
+  }));
 
 const useStyle = makeStyles((theme) => ({
     FormControl: {
@@ -45,6 +55,7 @@ const CountryPicker = ({ handleCountryChange }) => {
                 </Select>
             </MenuItem>
         </FormControl>
+        
 
     )
 }

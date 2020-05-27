@@ -2,6 +2,7 @@ import axios from 'axios';
 import CountryPicker from '../components/CountryPicker/CountryPicker';
 
 const url = 'https://covid19.mathdro.id/api';
+const url1 = 'https://covid19.mathdro.id/api/countries/india'
 
 export const fetchData = async (country) => {
     let changeableUrl = url;
@@ -20,6 +21,9 @@ export const fetchData = async (country) => {
     }
 
 }
+
+
+
 
 export const fetchDailyData = async () =>{
     try {
@@ -46,3 +50,4 @@ export const fetchCountries = async () => {
         console.log(error);
     }
 }
+
